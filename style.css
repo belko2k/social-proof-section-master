@@ -1,3 +1,26 @@
+  
+  :root {
+    --clr-primary-400: hsl(333, 80%, 67%);
+    --clr-primary-700: hsl(300, 43%, 22%);
+
+
+    --clr-neutral-400: hsl(0, 0%, 100%);
+    --clr-neutral-500: hsl(300, 24%, 96%);
+    --clr-neutral-700: hsl(303, 10%, 53%);
+
+    --fs-300: .9375rem;
+
+    --ff-primary: 'League Spartan', sans-serif;
+
+    --fw-regular: 400;
+    --fw-semi-bold: 500;
+    --fw-bold: 700;
+    
+
+    --br: .7rem;
+  }
+  
+  
   /* Box sizing rules */
   *,
   *::before,
@@ -72,3 +95,214 @@
       scroll-behavior: auto !important;
     }
   }
+
+  body {
+    font-size: var(--fs-300);
+    font-family: var(--ff-primary);
+    background-color: var(--clr-neutral-400);
+
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 70rem;
+  }
+
+  .hero {
+    display: grid;
+    
+    text-align: center;
+    padding-bottom: 3rem;
+    gap: 2rem;
+  }
+
+  .hero__heading {
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary-700);
+    line-height: 1;
+  }
+
+  .hero__heading > p {
+    color: var(--clr-neutral-700);
+    font-size: 1.1rem;
+    /* max-width: 40ch; */
+  }
+
+  .ratings {
+    display: grid;
+    /* align-items: center; */
+    gap: 1rem;
+    /* max-width: 25rem; */
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .ratings .blocks {
+    
+    background: var(--clr-neutral-500);
+    font-size: 1.1rem;
+    color: var(--clr-primary-700);
+    font-weight: var(--fw-bold); 
+    padding-block: .5rem;
+    border-radius: var(--br);
+
+  }
+  
+  .blocks::before {
+    content: '';
+    width: 100px;
+    display: block;
+    background-image: url(images/icon-star.svg);
+    height: 1rem;
+    margin-block: .5rem;
+    background-repeat: space;
+    margin-inline: auto;
+  }
+  .buyers-grid {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    gap: 2rem;
+  }
+
+  .card {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--clr-primary-700);
+    border-radius: var(--br);
+    margin-inline: auto;
+  }
+
+  .card__img {
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  } 
+
+  .name {
+    color: var(--clr-neutral-400);
+    font-weight: var(--fw-semi-bold);
+  }
+
+  .position {
+    color: var(--clr-primary-400);
+  }
+
+  .quote {
+    color: var(--clr-neutral-400);
+    /* max-width: 35ch; */
+  }
+
+  @keyframes slide-down-2 {
+    from {
+      transform: translateY(0%);
+    }
+    to {
+      transform: translateY(8%);
+    }
+  }
+
+  @keyframes slide-down-3 {
+    from {
+      transform: translateY(0%);
+    }
+    to {
+      transform: translateY(16%);
+    }
+  }
+
+  @keyframes slide-left-1 {
+    from {
+      transform: translatex(0%);
+    }
+    to {
+      transform: translatex(-20%);
+    }
+  }
+
+  @keyframes slide-left-2 {
+    from {
+      transform: translatex(0%);
+    }
+    to {
+      transform: translatex(-10%);
+    }
+  }
+
+
+/* utility */
+
+.flex {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 50em) {
+
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero__heading {
+    text-align: left;
+    justify-content: left;
+  }
+
+  .hero__heading h2 {
+    max-width: 15ch;
+    line-height: 0.9;
+  }
+
+  .hero__heading p {
+    max-width: 40ch;
+  }
+
+  .ratings{
+    align-self: center;
+    max-width: 78%;  
+    margin-right: 0;
+  }
+
+   .blocks {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .blocks::before {
+    margin-left: .5rem;
+    margin-right: 2rem;
+  }
+
+.blocks:first-child {
+  animation: slide-left-1 1000ms forwards;
+}
+
+.blocks:nth-child(2) {
+  animation: slide-left-2 1000ms forwards;
+}
+
+  .card:nth-child(2) {
+    animation: slide-down-2 1000ms forwards; 
+  }
+
+  .card:last-child {
+    animation: slide-down-3 1000ms forwards; 
+  }
+
+  .buyers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
